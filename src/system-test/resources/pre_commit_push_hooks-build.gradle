@@ -1,0 +1,17 @@
+plugins {
+    id 'io.github.pepperkit.git-hooks-gradle-plugin' version '1.0.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'io.github.pepperkit.git-hooks-gradle-plugin'
+
+build {
+    dependsOn initGitHooks
+}
+
+gitHooksGradlePlugin {
+    hooks = [
+        'pre-commit' : 'echo "pre-commit hook is invoked"',
+        'pre-push' : 'echo "pre-push hook is invoked"'
+    ]
+}
