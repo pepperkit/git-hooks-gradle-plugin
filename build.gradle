@@ -109,7 +109,7 @@ sonar {
         property "sonar.projectKey", "pepperkit_git-hooks-gradle-plugin"
         property "sonar.organization", "pepperkit"
         property "sonar.host.url", "https://sonarcloud.io"
-        // property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
     }
 }
 
