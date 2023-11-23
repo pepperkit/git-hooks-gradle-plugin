@@ -8,6 +8,7 @@ plugins {
     id 'jacoco'
 
     id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '1.2.1'
 }
 
 java {
@@ -19,6 +20,22 @@ java {
 group 'io.github.pepperkit'
 version '1.0.0'
 
+gradlePlugin {
+    website = 'https://pepperkit.github.io/'
+    vcsUrl = 'https://github.com/pepperkit/git-hooks-gradle-plugin'
+
+    plugins {
+        gitHooksGradlePlugin {
+            id = 'io.github.pepperkit.git-hooks-gradle-plugin'
+            displayName = 'Plugin for easy git hooks configuration'
+            description = 'A plugin that helps you configure git hooks on the project level'
+            tags.addAll('git', 'git hooks')
+            implementationClass = 'io.github.pepperkit.githooks.GitHooksPlugin'
+        }
+    }
+}
+
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -27,15 +44,6 @@ repositories {
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
-}
-
-gradlePlugin {
-    plugins {
-        gitHooksGradlePlugin {
-            id = 'io.github.pepperkit.git-hooks-gradle-plugin'
-            implementationClass = 'io.github.pepperkit.githooks.GitHooksPlugin'
-        }
-    }
 }
 
 checkstyle {

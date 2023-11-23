@@ -1,4 +1,4 @@
-# git-hooks-gradle-plugin
+# Git Hooks Gradle Plugin
 Gradle plugin for easy git hooks configuration.
 
 ## Usage
