@@ -4,7 +4,7 @@ plugins {
     id 'jvm-test-suite'
 
     id 'checkstyle'
-    id 'org.sonarqube' version '3.1.1'
+    id 'org.sonarqube' version '4.4.1.3373'
     id 'jacoco'
 
     id 'maven-publish'
@@ -91,12 +91,25 @@ testing {
     }
 }
 
-sonarqube {
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.required = true
+        xml.destination file("${buildDir}/reports/jacoco.xml")
+    }
+}
+
+sonar {
     properties {
         property "sonar.projectKey", "pepperkit_git-hooks-gradle-plugin"
         property "sonar.organization", "pepperkit"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
+        // property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
     }
 }
 

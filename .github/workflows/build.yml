@@ -38,17 +38,20 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Checkstyle
-      run: ./gradlew checkstyleMain
-
     - name: Compile
       run: ./gradlew compileJava
+
+    - name: Checkstyle
+      run: ./gradlew checkstyleMain
 
     - name: Unit Tests
       run: ./gradlew test
 
     - name: System Tests
       run: ./gradlew systemTest
+
+    - name: Test Report
+      run: ./gradlew jacocoTestReport
 
     - name: Analyze with SonarCloud
       env:
