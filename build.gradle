@@ -80,7 +80,7 @@ testing {
                 implementation 'org.mockito:mockito-core:5.4.0'
                 implementation 'org.assertj:assertj-core:3.24.2'
 
-                implementation('org.testcontainers:junit-jupiter:1.18.3')
+                implementation('org.testcontainers:junit-jupiter:1.19.3')
 
                 implementation("io.cucumber:cucumber-java:7.13.0")
                 implementation("io.cucumber:cucumber-junit-platform-engine:7.13.0")
