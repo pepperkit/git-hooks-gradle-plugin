@@ -8,8 +8,6 @@ plugins {
     id 'jacoco'
 
     id 'maven-publish'
-
-//    id 'io.github.pepperkit.git-hooks-gradle-plugin' version '1.0.0'
 }
 
 java {
@@ -92,7 +90,7 @@ testing {
 }
 
 jacoco {
-    toolVersion = "0.8.8"
+    toolVersion = "0.8.10"
 }
 
 jacocoTestReport {
@@ -109,17 +107,6 @@ sonar {
         property "sonar.projectKey", "pepperkit_git-hooks-gradle-plugin"
         property "sonar.organization", "pepperkit"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
+        property "sonar.exclusions", "**GitHooksManager.java"
     }
 }
-
-/*
-apply plugin: 'io.github.pepperkit.git-hooks-gradle-plugin'
-
-gitHooksGradlePlugin {
-    hooks = [
-        'pre-commit' : 'gradle -q checkstyleMain',
-        'pre-push' : 'gradle -q test'
-    ]
-}
-*/

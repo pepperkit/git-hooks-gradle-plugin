@@ -34,8 +34,6 @@ public class GitHooksManager {
 
     private static final Path GIT_HOOKS_PATH = Paths.get(".git", "hooks");
 
-    private static final Path ARCHIVES_PATH = GIT_HOOKS_PATH.resolve("archived");
-
     private static final String SHEBANG = "#!/bin/sh";
 
     static final Set<String> GIT_HOOKS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
