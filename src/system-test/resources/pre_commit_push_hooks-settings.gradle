@@ -1,0 +1,7 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+    }
+}
+
+rootProject.buildFileName = 'pre_commit_push_hooks-build.gradle'

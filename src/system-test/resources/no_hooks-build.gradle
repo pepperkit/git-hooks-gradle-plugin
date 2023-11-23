@@ -1,0 +1,9 @@
+plugins {
+    id 'io.github.pepperkit.git-hooks-gradle-plugin' version '1.0.0'
+}
+
+repositories {
+    mavenLocal()
+}
+
+apply plugin: 'io.github.pepperkit.git-hooks-gradle-plugin'
