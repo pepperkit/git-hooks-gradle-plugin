@@ -1,4 +1,10 @@
 # Git Hooks Gradle Plugin
+[![Java CI with Gradle](https://github.com/pepperkit/git-hooks-gradle-plugin/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/pepperkit/git-hooks-gradle-plugin/actions/workflows/build.yml)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pepperkit_git-hooks-gradle-plugin&metric=coverage)](https://sonarcloud.io/dashboard?id=pepperkit_git-hooks-gradle-plugin)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=pepperkit_git-hooks-gradle-plugin&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=pepperkit_git-hooks-gradle-plugin)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pepperkit_git-hooks-gradle-plugin&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=pepperkit_git-hooks-gradle-plugin)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=pepperkit_git-hooks-gradle-plugin&metric=security_rating)](https://sonarcloud.io/dashboard?id=pepperkit_git-hooks-gradle-plugin)
+
 Gradle plugin for easy git hooks configuration.
 
 ## Usage
