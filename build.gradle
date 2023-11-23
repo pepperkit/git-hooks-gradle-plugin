@@ -114,7 +114,6 @@ sonar {
 }
 
 /*
-
 apply plugin: 'io.github.pepperkit.git-hooks-gradle-plugin'
 
 gitHooksGradlePlugin {
