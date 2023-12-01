@@ -9,6 +9,8 @@ plugins {
 
     id 'maven-publish'
     id 'com.gradle.plugin-publish' version '1.2.1'
+
+    id 'io.github.pepperkit.git-hooks-gradle-plugin' version '1.0.0'
 }
 
 java {
@@ -35,7 +37,6 @@ gradlePlugin {
     }
 }
 
-
 repositories {
     mavenLocal()
     mavenCentral()
@@ -47,29 +48,28 @@ java {
 }
 
 checkstyle {
-    toolVersion '10.12.2'
+    toolVersion '10.12.5'
     config project.resources.text
             .fromUri(new URI("https://raw.githubusercontent.com/pepperkit/java-style-guide/v1.0.2-9.2/checkstyle.xml"))
 }
 
 testing {
     suites {
-        test {
+        configureEach {
             useJUnitJupiter()
-
             dependencies {
-                implementation 'org.junit.jupiter:junit-jupiter:5.10.0'
-                implementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+                implementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+                implementation 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
                 implementation 'org.junit.platform:junit-platform-suite:1.10.0'
-                implementation 'org.mockito:mockito-core:5.4.0'
+                implementation 'org.mockito:mockito-core:5.7.0'
                 implementation 'org.assertj:assertj-core:3.24.2'
-
             }
         }
 
-        systemTest(JvmTestSuite) {
-            useJUnitJupiter()
+        test {
+        }
 
+        systemTest(JvmTestSuite) {
             sources {
                 java {
                     srcDirs = ['src/system-test/java']
@@ -82,16 +82,9 @@ testing {
             dependencies {
                 implementation project()
 
-                implementation 'org.junit.jupiter:junit-jupiter:5.10.0'
-                implementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
-                implementation 'org.junit.platform:junit-platform-suite:1.10.0'
-                implementation 'org.mockito:mockito-core:5.4.0'
-                implementation 'org.assertj:assertj-core:3.24.2'
-
-                implementation('org.testcontainers:junit-jupiter:1.18.3')
-
-                implementation("io.cucumber:cucumber-java:7.13.0")
-                implementation("io.cucumber:cucumber-junit-platform-engine:7.13.0")
+                implementation('org.testcontainers:junit-jupiter:1.19.3')
+                implementation("io.cucumber:cucumber-java:7.14.1")
+                implementation("io.cucumber:cucumber-junit-platform-engine:7.14.1")
             }
         }
     }
@@ -117,4 +110,15 @@ sonar {
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.exclusions", "**GitHooksManager.java"
     }
+}
+
+compileJava {
+    dependsOn initGitHooks
+}
+
+gitHooksGradlePlugin {
+    hooks = [
+            'pre-commit' : 'gradle -q checkstyleMain',
+            'pre-push' : 'gradle -q test'
+    ]
 }

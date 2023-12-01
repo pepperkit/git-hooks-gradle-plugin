@@ -13,5 +13,9 @@ import org.gradle.api.provider.MapProperty;
  */
 public interface GitHooksPluginExtension {
 
+    /**
+     * Git hooks configuration (hook-name -> hook-value).
+     * @return configured hooks
+     */
     MapProperty<String, String> getHooks();
 }
