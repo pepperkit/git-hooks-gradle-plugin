@@ -36,6 +36,11 @@ public class GitHooksPlugin implements Plugin<Project> {
         initGitHooks.doLast(task -> initGitHooks(task, extension.getHooks().get()));
     }
 
+    /**
+     * Installs configured git hooks.
+     * @param task task
+     * @param hooks map of hooks (hook-name -> hook-value)
+     */
     protected void initGitHooks(Task task, Map<String, String> hooks) {
         logger.info("Git Hooks Plugin is launched");
         logger.debug("Hooks: {}", hooks);

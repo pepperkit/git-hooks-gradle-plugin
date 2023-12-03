@@ -63,7 +63,7 @@ public class GitHooksManager {
 
     /**
      * Creates GitHooksManager with the provided plugin. Mojo is used to obtain the correct logger.
-     * @param logger
+     * @param logger logger
      */
     public GitHooksManager(Logger logger) {
         this.logger = logger;

@@ -17,9 +17,6 @@ plugins {
     id 'io.github.pepperkit.git-hooks-gradle-plugin' version '1.0.0'
 }
 
-apply plugin: 'java'
-apply plugin: 'io.github.pepperkit.git-hooks-gradle-plugin'
-
 compileJava {
     // Initialize git hooks each time the project is compiled 
     dependsOn initGitHooks
@@ -33,7 +30,6 @@ gitHooksGradlePlugin {
             'pre-push' : 'gradle -q test'
     ]
 }
-
 ```
 
 Hook's content is any command line script, which is considered successful if exit code is equal to `0`, and not otherwise.
