@@ -82,7 +82,7 @@ testing {
             dependencies {
                 implementation project()
 
-                implementation('org.testcontainers:junit-jupiter:1.19.3')
+                implementation('org.testcontainers:junit-jupiter:1.19.6')
                 implementation("io.cucumber:cucumber-java:7.15.0")
                 implementation("io.cucumber:cucumber-junit-platform-engine:7.15.0")
             }
